@@ -2,11 +2,6 @@
 
 **Hybrid Quantum-Classical Machine Learning for Gene Expression Analysis**
 
-![Python](https://img.shields.io/badge/python-3.10%2B-blue)
-![Streamlit](https://img.shields.io/badge/streamlit-1.36%2B-FF4B4B)
-![Qiskit](https://img.shields.io/badge/qiskit-1.0%2B-6929C4)
-![License](https://img.shields.io/badge/license-MIT-green)
-![Tests](https://img.shields.io/badge/tests-pytest-informational)
 
 A production-quality Streamlit application that reduces high-dimensional
 gene-expression data (thousands of genes) down to a handful of
@@ -114,13 +109,6 @@ Quantum-Feature-Selection-Framework/
 ```bash
 # 1. Clone / unzip the project, then move into it
 cd Quantum-Feature-Selection-Framework
-
-# 2. (Recommended) Create a virtual environment
-python -m venv .venv
-source .venv/bin/activate      
-
-# 3. Install dependencies
-pip install -r requirements.txt
 ```
 
 ---
@@ -211,18 +199,6 @@ Actions workflow in [`.github/workflows/ci.yml`](./.github/workflows/ci.yml).
 See the in-app **About** page for full details and references.
 
 ---
-
-## 📸 Screenshots
-
-Screenshots live in [`docs/screenshots/`](./docs/screenshots). After your
-first run, save captures of the Home, Quantum Analysis, and Results pages
-there (e.g. `docs/screenshots/home.png`) and reference them here:
-
-```markdown
-![Home page](docs/screenshots/home.png)
-![Quantum Analysis](docs/screenshots/quantum_analysis.png)
-![Results](docs/screenshots/results.png)
-```
 
 ---
 

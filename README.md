@@ -1,70 +1,76 @@
 🧬 Quantum Feature Selection Framework
 Hybrid Quantum-Classical Machine Learning for Gene Expression Analysis
 
-A production-quality Streamlit application for high-dimensional gene-expression analysis. The framework selects statistically significant features, encodes them into a quantum circuit, and compares classical SVM with quantum-enhanced SVM through an interactive Streamlit dashboard.
+A production-quality Streamlit application that reduces high-dimensional gene-expression data (thousands of genes) down to a handful of statistically significant features, encodes them into a quantum circuit, and compares a classical SVM against a quantum-enhanced SVM — all through an interactive, research-grade web interface.
 
+The project began as a research notebook exploring hybrid quantum-classical classification on gene-expression data, and was re-architected into reusable, unit-tested Python modules (src/) with a 9-page Streamlit dashboard (dashboard/) suitable for demos, coursework, and stakeholder presentations.
 📑 Table of Contents
-- ✨ Features
-- 📁 Project Structure
-- 🚀 Installation
-- ▶️ How to Run
-- 🗂️ Bringing Your Own Dataset
-- 🧪 Requirements
-- ✅ Testing
-- 🔮 Future Scope
-- 🤝 Contributing
-- 📄 License
-- 🙏 Acknowledgements
+- Features
+- Project Structure
+- Installation
+- How to Run
+- Bringing Your Own Dataset
+- Requirements
+- Testing
+- Future Scope
+- Screenshots
+- Contributing
+- License
+- Acknowledgements
 ✨ Features
-- 📤 Upload a gene-expression CSV or explore the bundled Golub leukemia dataset.
-- 🧹 Inspect preprocessing steps, including cleaning, encoding, scaling, and splitting.
-- 🎯 Select the top-K features using the ANOVA F-test.
-- ⚛️ Explore quantum circuits using angle encoding and entanglement.
-- 🧠 Compare classical SVM and quantum-enhanced SVM results.
-- 📊 View interactive charts, confusion matrices, ROC curves, and metric comparisons.
-- 📥 Export predictions, metrics, selected features, charts, and a PDF report.
-- 🖥️ Use a multi-page dashboard designed for research demos and coursework.
-  
+- 📤 Upload your own gene-expression CSV, or explore the bundled Golub et al. leukemia dataset
+- 🧹 Transparent, step-by-step preprocessing (cleaning, encoding, scaling, splitting)
+- 🎯 ANOVA F-test feature selection with adjustable top-K
+- ⚛️ Live, inspectable quantum circuits (angle encoding + entanglement), Bloch spheres, and measurement histograms, powered by Qiskit Aer
+- 🧠 Side-by-side Classical SVM vs. Quantum-Enhanced SVM training & evaluation
+- 📊 Rich, interactive Plotly visualizations: confusion matrices, ROC curves, PCA projections, metric comparisons
+- 📥 One-click exports: predictions, metrics, classification reports, selected features, PNG graphs, and a consolidated PDF report
+- 🖥️ A polished, modern, scientific UI suitable for demos, coursework, and stakeholder presentations
 📁 Project Structure
-The project code is inside the Quantum-Feature-Selection-Framework/ folder in this repository.
 Quantum-Feature-Selection-Framework/
+│
 ├── dashboard/
-│   ├── app.py
+│   ├── app.py                     # Streamlit entry point
 │   └── pages/
-│       ├── 1_Home.py
-│       ├── 2_Dataset.py
-│       ├── 3_Preprocessing.py
-│       ├── 4_Feature_Selection.py
-│       ├── 5_Quantum_Analysis.py
-│       ├── 6_Classification.py
-│       ├── 7_Results.py
-│       ├── 8_Download.py
-│       └── 9_About.py
+│       ├── 1_Home.py              # Overview, workflow diagram, tech stack
+│       ├── 2_Dataset.py           # Upload / inspect dataset
+│       ├── 3_Preprocessing.py     # Cleaning, encoding, scaling, splitting
+│       ├── 4_Feature_Selection.py # ANOVA (SelectKBest) feature selection
+│       ├── 5_Quantum_Analysis.py  # Quantum circuits, Bloch spheres, encoding
+│       ├── 6_Classification.py    # Train & evaluate Classical + Quantum SVM
+│       ├── 7_Results.py           # Confusion matrices, ROC curves, comparisons
+│       ├── 8_Download.py          # Export CSVs, graphs, and PDF report
+│       └── 9_About.py             # Methodology, references, future scope
+│
 ├── src/
-│   ├── data_loader.py
-│   ├── preprocessing.py
-│   ├── feature_selection.py
-│   ├── quantum_pipeline.py
-│   ├── classifier.py
-│   ├── visualization.py
-│   ├── ui_components.py
-│   ├── report_generator.py
-│   └── utils.py
+│   ├── data_loader.py             # Dataset ingestion & validation
+│   ├── preprocessing.py           # Cleaning, encoding, scaling, splitting
+│   ├── feature_selection.py       # ANOVA F-test feature selection
+│   ├── quantum_pipeline.py        # Qiskit circuits, simulation, feature extraction
+│   ├── classifier.py              # SVM training & evaluation
+│   ├── visualization.py           # Plotly chart builders
+│   ├── ui_components.py           # Shared Streamlit UI building blocks
+│   ├── report_generator.py        # PDF report generation (ReportLab)
+│   └── utils.py                   # Constants, session-state keys, helpers
+│
 ├── assets/
-│   └── style.css
+│   └── style.css                  # Custom dashboard theme
+│
 ├── data/
-│   ├── raw/
-│   │   └── golub.csv
-│   └── sample/
+│   ├── raw/golub.csv              # Bundled Golub et al. leukemia dataset
+│   └── sample/                    # Space for additional sample datasets
+│
 ├── tests/
+│   ├── test_data_loader.py        # Dataset loading & validation tests
+│   ├── test_feature_selection.py  # ANOVA feature selection tests
+│   └── test_utils.py              # Shared helper-function tests
+│
 ├── docs/
-│   └── screenshots/
-├── outputs/
-├── .streamlit/
-│   └── config.toml
-├── .github/
-│   └── workflows/
-│       └── ci.yml
+│   └── screenshots/                # Dashboard screenshots for this README
+│
+├── outputs/                        # Exported results land here (gitignored)
+├── .streamlit/config.toml          # Streamlit theme configuration
+├── .github/workflows/ci.yml        # GitHub Actions: install deps + run tests
 ├── requirements.txt
 ├── LICENSE
 ├── CONTRIBUTING.md
@@ -72,69 +78,60 @@ Quantum-Feature-Selection-Framework/
 
 🚀 Installation
 Requirements: Python 3.10 or later.
-1. Clone the repository:
-   git clone https://github.com/Navyasribhaskar/Quantum-Feature-Selection-Framework2.git
-2. Move into the project folder:
-   cd Quantum-Feature-Selection-Framework2/Quantum-Feature-Selection-Framework
-3. Install dependencies:
-   pip install -r requirements.txt
-   
+# Clone the repository, then enter the project folder
+git clone https://github.com/Navyasribhaskar/Quantum-Feature-Selection-Framework2.git
+cd Quantum-Feature-Selection-Framework2/Quantum-Feature-Selection-Framework
 ▶️ How to Run
-Run the command from inside the Quantum-Feature-Selection-Framework folder so the app can resolve its data/ and assets/ paths.
+Launch the app from the project root (so relative paths to data/ and assets/ resolve correctly):
 streamlit run dashboard/app.py
-Then open the local URL shown in the terminal, usually http://localhost:8501.
+Then open the URL Streamlit prints (typically http://localhost:8501) in your browser.
 Recommended walkthrough
-1. Home: Review the project overview and workflow.
-2. Dataset: Load the sample dataset or upload a compatible CSV.
-3. Preprocessing: Inspect cleaning, encoding, scaling, and splitting.
-4. Feature Selection: Choose the number of features and run ANOVA selection.
-5. Quantum Analysis: Inspect the circuit and quantum feature extraction.
-6. Classification: Train and evaluate the classical and quantum-enhanced SVMs.
-7. Results: Review confusion matrices, ROC curves, and comparison charts.
-8. Download: Export results and reports.
-9. About: Read the methodology, references, and future scope.
-    
+1. Home — read the project overview and workflow.
+2. Dataset — load the bundled Golub dataset (or upload your own CSV), confirm the target and metadata columns.
+3. Preprocessing — run cleaning, encoding, scaling, and the train/test split.
+4. Feature Selection — choose top-K and run the ANOVA F-test.
+5. Quantum Analysis — inspect a sample's quantum circuit, then run full-batch quantum feature extraction.
+6. Classification — train and evaluate both the Classical and Quantum-Enhanced SVMs.
+7. Results — review confusion matrices, ROC curves, and comparison charts.
+8. Download — export predictions, metrics, reports, graphs, and a PDF summary.
+9. About — methodology, references, and future scope.
 🗂️ Bringing Your Own Dataset
-For best compatibility, your CSV should contain:
-- One row per sample.
-- Numeric columns for genes or other features.
-- One target/label column with at least two classes.
-- Optional metadata columns that can be excluded before training.
-On the Dataset page, select the correct target column and exclude any identifier or metadata columns that should not be used as model features.
-
-🧪 Requirements
-See [`requirements.txt`](Quantum-Feature-Selection-Framework/requirements.txt) for the project's dependency list.
+The uploaded CSV should have:
+- One row per sample
+- One column per gene/feature (numeric)
+- One target/label column (categorical, ≥2 classes)
+- Optionally, extra metadata columns (patient ID, gender, etc.) that you can exclude on the Dataset page
+The app will attempt to auto-detect a sensible target column and any metadata columns matching the original Golub dataset's schema (Samples, BM.PB, Gender, Source, tissue.mf), but both are fully adjustable in the UI.
+🧪 Requirements (Python packages)
+See requirements.txt for exact version constraints. Key libraries:
 Library	Purpose
-streamlit	Interactive web application
-qiskit, qiskit-aer	Quantum circuit design and simulation
-scikit-learn, scipy	Preprocessing, feature selection, and SVM classification
-pandas, numpy	Data handling and numerical computing
+streamlit	Interactive multi-page web application
+qiskit, qiskit-aer	Quantum circuit design & local simulation
+scikit-learn, scipy	Preprocessing, ANOVA feature selection, SVM classification
+pandas, numpy	Data manipulation & numerical computing
 plotly	Interactive charts
-matplotlib, pylatexenc	Circuit diagrams and visualizations
-kaleido	Plotly chart image export
+matplotlib, pylatexenc	Quantum circuit diagrams & Bloch spheres
+kaleido	PNG export of Plotly charts
 reportlab	PDF report generation
 
 
 ✅ Testing
-If the test suite is included in your checkout, run it from the project folder:
+The src/ layer is unit-tested with pytest, covering dataset validation, ANOVA feature selection, and shared helper functions.
 pip install pytest
 pytest tests/ -v
-The repository also includes a GitHub Actions workflow at [`ci.yml`](Quantum-Feature-Selection-Framework/.github/workflows/ci.yml) for automated checks.
-
+Tests run automatically on every push and pull request via the GitHub Actions workflow in .github/workflows/ci.yml.
 🔮 Future Scope
-- Explore advanced feature maps such as ZZFeatureMap and PauliFeatureMap.
-- Investigate quantum kernel estimation and explicit quantum kernel matrices.
-- Explore execution on IBM Quantum hardware through Qiskit Runtime.
-- Evaluate larger multi-omics datasets.
-- Investigate hybrid quantum neural networks.
-  
+- Larger quantum circuits and advanced feature maps (ZZFeatureMap, PauliFeatureMap)
+- Quantum Kernel Estimation / Quantum SVM using an explicit quantum kernel matrix
+- Execution on real IBM Quantum hardware via Qiskit Runtime
+- Larger, multi-omics datasets for more statistically robust conclusions
+- Hybrid quantum neural networks trained end-to-end
+See the in-app About page for full details and references.
 🤝 Contributing
-Contributions are welcome. See [`CONTRIBUTING.md`](Quantum-Feature-Selection-Framework/CONTRIBUTING.md) for contribution and testing guidance.
-
+Contributions are welcome. See CONTRIBUTING.md for setup instructions, coding guidelines, and how to run the test suite before opening a pull request.
 📄 License
-This project is licensed under the MIT License. See LICENSE.
-
+This project is licensed under the MIT License.
 🙏 Acknowledgements
-- Golub, T. R., et al. (1999), for the leukemia gene-expression dataset.
-- The Qiskit and scikit-learn open-source communities.
-- Streamlit for the application framework.
+- Golub, T. R., et al. (1999) for the leukemia gene-expression dataset
+- The Qiskit and scikit-learn open-source communities
+- Streamlit for the application framework powering this dashboard

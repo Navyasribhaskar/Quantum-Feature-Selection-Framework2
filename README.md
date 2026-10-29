@@ -13,23 +13,20 @@ quantum-classical classification on gene-expression data, and was
 re-architected into reusable, unit-tested Python modules (src/) with a
 9-page Streamlit dashboard (dashboard/) suitable for demos,
 coursework, and stakeholder presentations.
+
 📑 Table of Contents
 - Features
-- Project
-  Structure
+- Project Structure
 - Installation
-- How to
-  Run
-- Bringing Your Own
-  Dataset
+- How to Run
+- Bringing Your Own Dataset
 - Requirements
 - Testing
-- Future
-  Scope
-- Screenshots
+- Future Scope
 - Contributing
 - License
 - Acknowledgements
+  
 ✨ Features
 - 📤 Upload your own gene-expression CSV, or explore the bundled Golub
   et al. leukemia dataset
@@ -47,43 +44,64 @@ coursework, and stakeholder presentations.
   selected features, PNG graphs, and a consolidated PDF report
 - 🖥️ A polished, modern, scientific UI suitable for demos, coursework,
   and stakeholder presentations
-
-## 📁 Project Structure
-
-The project code lives inside the `Quantum-Feature-Selection-Framework/` folder.
-
-```text
+  
+📁 Project Structure
+The application code is stored in the
+Quantum-Feature-Selection-Framework/ subfolder of this repository.
 Quantum-Feature-Selection-Framework/
 ├── dashboard/
 │   ├── app.py
 │   └── pages/
+│       ├── 1_Home.py
+│       ├── 2_Dataset.py
+│       ├── 3_Preprocessing.py
+│       ├── 4_Feature_Selection.py
+│       ├── 5_Quantum_Analysis.py
+│       ├── 6_Classification.py
+│       ├── 7_Results.py
+│       ├── 8_Download.py
+│       └── 9_About.py
 ├── src/
+│   ├── data_loader.py
+│   ├── preprocessing.py
+│   ├── feature_selection.py
+│   ├── quantum_pipeline.py
+│   ├── classifier.py
+│   ├── visualization.py
+│   ├── ui_components.py
+│   ├── report_generator.py
+│   └── utils.py
 ├── assets/
+│   └── style.css
 ├── data/
+│   ├── raw/golub.csv
+│   └── sample/
 ├── tests/
+│   ├── test_data_loader.py
+│   ├── test_feature_selection.py
+│   └── test_utils.py
 ├── docs/
+│   └── screenshots/
 ├── outputs/
+├── .streamlit/config.toml
+├── .github/workflows/ci.yml
 ├── requirements.txt
 ├── LICENSE
 ├── CONTRIBUTING.md
 └── README.md
 
-
-
-**Important:** The inner triple-backtick line closes the folder-tree block. The final triple-backtick line in the example closes the outer Markdown example; **don't include that final outer line in your README**. In your actual README, the `## 🚀 Installation` heading should come after the folder-tree block has been closed.
-
-You can also use the corrected file I prepared earlier: [Download the corrected README](sandbox:/mnt/data/README_outer_fixed.md).
-
-Once the Project Structure displays in a separate shaded code block, your README will be much cleaner. Then we'll get back to deploying your live dashboard! 🚀
-
 🚀 Installation
 Requirements: Python 3.10 or later.
-# 1. Clone the repository, then enter the project folder
-# git clone https://github.com/Navyasribhaskar/Quantum-Feature-Selection-Framework2.git
-cd Quantum-Feature-Selection-Framework2/Quantum-Feature-Selection-Framework
+1. Clone the GitHub repository:
+   git clone https://github.com/Navyasribhaskar/Quantum-Feature-Selection-Framework2.git
+2. Enter the project directory:
+   cd Quantum-Feature-Selection-Framework2/Quantum-Feature-Selection-Framework
+3. Install dependencies:
+   pip install -r requirements.txt
+   
 ▶️ How to Run
-Launch the app from the project root (so relative paths to data/
-and assets/ resolve correctly):
+Run the app from inside the project folder so relative paths to data/
+and assets/ resolve correctly:
 streamlit run dashboard/app.py
 Then open the URL Streamlit prints (typically http://localhost:8501)
 in your browser.
@@ -118,7 +136,7 @@ fully adjustable in the UI.
 
 🧪 Requirements (Python packages)
 See
-requirements.txt
+[`requirements.txt`](Quantum-Feature-Selection-Framework/requirements.txt)
 for exact version constraints. Key libraries:
   Library           Purpose
   streamlit           Interactive multi-page web application
@@ -138,7 +156,7 @@ for exact version constraints. Key libraries:
 
   kaleido             PNG export of Plotly charts
   reportlab           PDF report generation
-
+  
 ✅ Testing
 The src/ layer is unit-tested with pytest, covering dataset
 validation, ANOVA feature selection, and shared helper functions.
@@ -146,8 +164,7 @@ pip install pytest
 pytest tests/ -v
 Tests run automatically on every push and pull request via the GitHub
 Actions workflow in
-.github/workflows/ci.yml.
-
+[`ci.yml`](Quantum-Feature-Selection-Framework/.github/workflows/ci.yml).
 🔮 Future Scope
 - Larger quantum circuits and advanced feature maps (ZZFeatureMap,
   PauliFeatureMap)
@@ -161,10 +178,9 @@ See the in-app About page for full details and references.
 
 🤝 Contributing
 Contributions are welcome. See
-CONTRIBUTING.md
+[`CONTRIBUTING.md`](Quantum-Feature-Selection-Framework/CONTRIBUTING.md)
 for setup instructions, coding guidelines, and how to run the test suite
 before opening a pull request.
-
 📄 License
 This project is licensed under the MIT
 License.

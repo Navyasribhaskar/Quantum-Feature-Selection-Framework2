@@ -47,58 +47,35 @@ coursework, and stakeholder presentations.
   selected features, PNG graphs, and a consolidated PDF report
 - 🖥️ A polished, modern, scientific UI suitable for demos, coursework,
   and stakeholder presentations
-📁 Project Structure
-The project code currently lives inside the
-Quantum-Feature-Selection-Framework/ subfolder of this GitHub
-repository.
+
+## 📁 Project Structure
+
+The project code lives inside the `Quantum-Feature-Selection-Framework/` folder.
+
+```text
 Quantum-Feature-Selection-Framework/
-│
 ├── dashboard/
-│   ├── app.py                     # Streamlit entry point
+│   ├── app.py
 │   └── pages/
-│       ├── 1_Home.py              # Overview, workflow diagram, tech stack
-│       ├── 2_Dataset.py           # Upload / inspect dataset
-│       ├── 3_Preprocessing.py     # Cleaning, encoding, scaling, splitting
-│       ├── 4_Feature_Selection.py # ANOVA (SelectKBest) feature selection
-│       ├── 5_Quantum_Analysis.py  # Quantum circuits, Bloch spheres, encoding
-│       ├── 6_Classification.py    # Train & evaluate Classical + Quantum SVM
-│       ├── 7_Results.py           # Confusion matrices, ROC curves, comparisons
-│       ├── 8_Download.py          # Export CSVs, graphs, and PDF report
-│       └── 9_About.py             # Methodology, references, future scope
-│
 ├── src/
-│   ├── data_loader.py             # Dataset ingestion & validation
-│   ├── preprocessing.py           # Cleaning, encoding, scaling, splitting
-│   ├── feature_selection.py       # ANOVA F-test feature selection
-│   ├── quantum_pipeline.py        # Qiskit circuits, simulation, feature extraction
-│   ├── classifier.py              # SVM training & evaluation
-│   ├── visualization.py           # Plotly chart builders
-│   ├── ui_components.py           # Shared Streamlit UI building blocks
-│   ├── report_generator.py        # PDF report generation (ReportLab)
-│   └── utils.py                   # Constants, session-state keys, helpers
-│
 ├── assets/
-│   └── style.css                  # Custom dashboard theme
-│
 ├── data/
-│   ├── raw/golub.csv              # Bundled Golub et al. leukemia dataset
-│   └── sample/                    # Space for additional sample datasets
-│
 ├── tests/
-│   ├── test_data_loader.py        # Dataset loading & validation tests
-│   ├── test_feature_selection.py  # ANOVA feature selection tests
-│   └── test_utils.py              # Shared helper-function tests
-│
 ├── docs/
-│   └── screenshots/                # Dashboard screenshots for this README
-│
-├── outputs/                        # Exported results land here (gitignored)
-├── .streamlit/config.toml          # Streamlit theme configuration
-├── .github/workflows/ci.yml        # GitHub Actions: install deps + run tests
+├── outputs/
 ├── requirements.txt
 ├── LICENSE
 ├── CONTRIBUTING.md
 └── README.md
+
+
+
+**Important:** The inner triple-backtick line closes the folder-tree block. The final triple-backtick line in the example closes the outer Markdown example; **don't include that final outer line in your README**. In your actual README, the `## 🚀 Installation` heading should come after the folder-tree block has been closed.
+
+You can also use the corrected file I prepared earlier: [Download the corrected README](sandbox:/mnt/data/README_outer_fixed.md).
+
+Once the Project Structure displays in a separate shaded code block, your README will be much cleaner. Then we'll get back to deploying your live dashboard! 🚀
+
 🚀 Installation
 Requirements: Python 3.10 or later.
 # 1. Clone the repository, then enter the project folder
@@ -126,6 +103,7 @@ Recommended walkthrough
 8. Download --- export predictions, metrics, reports, graphs, and a
    PDF summary.
 9. About --- methodology, references, and future scope.
+
 🗂️ Bringing Your Own Dataset
 The uploaded CSV should have:
 - One row per sample
@@ -137,6 +115,7 @@ The app will attempt to auto-detect a sensible target column and any
 metadata columns matching the original Golub dataset's schema
 (Samples, BM.PB, Gender, Source, tissue.mf), but both are
 fully adjustable in the UI.
+
 🧪 Requirements (Python packages)
 See
 requirements.txt
@@ -159,6 +138,7 @@ for exact version constraints. Key libraries:
 
   kaleido             PNG export of Plotly charts
   reportlab           PDF report generation
+
 ✅ Testing
 The src/ layer is unit-tested with pytest, covering dataset
 validation, ANOVA feature selection, and shared helper functions.
@@ -167,6 +147,7 @@ pytest tests/ -v
 Tests run automatically on every push and pull request via the GitHub
 Actions workflow in
 .github/workflows/ci.yml.
+
 🔮 Future Scope
 - Larger quantum circuits and advanced feature maps (ZZFeatureMap,
   PauliFeatureMap)
@@ -177,14 +158,17 @@ Actions workflow in
   conclusions
 - Hybrid quantum neural networks trained end-to-end
 See the in-app About page for full details and references.
+
 🤝 Contributing
 Contributions are welcome. See
 CONTRIBUTING.md
 for setup instructions, coding guidelines, and how to run the test suite
 before opening a pull request.
+
 📄 License
 This project is licensed under the MIT
 License.
+
 🙏 Acknowledgements
 - Golub, T. R., et al. (1999) for the leukemia gene-expression dataset
 - The Qiskit and scikit-learn open-source communities

@@ -27,3 +27,4 @@ kaleido>=0.2.1             # enables PNG export of Plotly figures
 
 # --- PDF report generation ---
 reportlab>=4.1,<5.0
+plotly==5.24.1
